@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 
 // Menggunakan port dari environment (penting untuk deploy nanti) atau 3000 untuk lokal
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // Middleware untuk menyajikan folder 'public' sebagai file statis
 app.use(express.static(path.join(__dirname, 'public')));
@@ -20,3 +20,4 @@ app.get('/api/salam', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server berhasil berjalan di http://localhost:${PORT}`);
 });
+module.exports = app;
