@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Web Express.js</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+        #hasil-api { margin-top: 20px; color: green; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Selamat Datang di Web Kelompok Kami</h1>
+    <p>Ini adalah tugas pembuatan web menggunakan Javascript dan Express.js</p>
+    
+    <button onclick="panggilAPI()">Cek Koneksi ke Server</button>
+    <p id="hasil-api"></p>
+
+    <script>
+        function panggilAPI() {
+            // Mengambil data dari endpoint Express.js
+            fetch('/api/salam')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('hasil-api').innerText = data.pesan;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
